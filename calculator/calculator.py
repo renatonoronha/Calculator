@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 
 # COLORS
 color1 = '#000000'  # black
@@ -33,19 +32,23 @@ def display_values(event=None):
     global input_values
     signals = '%/*+-'
 
-    if len(input_values) > 1 and event in signals and input_values[-1] in signals:
+    if (
+        len(input_values) > 1
+        and event in signals
+        and input_values[-1] in signals
+    ):
         input_values = input_values[:-1]
-    
+
     if input_values == '0' and event not in signals:
         input_values = input_values[:-1]
 
-    if event == "C":
+    if event == 'C':
         input_values = input_values[:-1]
     elif event == 'CE':
         input_values = ''
     else:
         input_values += str(event)
-    
+
     if input_values == '':
         input_values = '0'
     display_label.config(text=input_values)
@@ -56,6 +59,7 @@ def calculate():
     result = str(eval(input_values))
     display_label.config(text=result)
     input_values = result
+
 
 def negate():
     global input_values
@@ -91,7 +95,7 @@ button_CE = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("CE")
+    command=lambda: display_values('CE'),
 )
 button_CE.place(x=0, y=0)
 
@@ -103,7 +107,7 @@ button_C = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("C")
+    command=lambda: display_values('C'),
 )
 button_C.place(x=80, y=0)
 
@@ -115,21 +119,21 @@ button_mod = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("%")
+    command=lambda: display_values('%'),
 )
 button_mod.place(x=160, y=0)
 
 button_division = Button(
     body_frame,
     text='/',
-    width=10,
+    width=11,
     height=4,
     bg=color3,
     fg=color4,
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("/")
+    command=lambda: display_values('/'),
 )
 button_division.place(x=240, y=0)
 
@@ -138,10 +142,10 @@ button_7 = Button(
     text='7',
     width=10,
     height=4,
-    font=('Arial', 9, "bold"),
+    font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("7")
+    command=lambda: display_values('7'),
 )
 button_7.place(x=0, y=70)
 
@@ -153,7 +157,7 @@ button_8 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("8")
+    command=lambda: display_values('8'),
 )
 button_8.place(x=80, y=70)
 
@@ -165,21 +169,21 @@ button_9 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("9")
+    command=lambda: display_values('9'),
 )
 button_9.place(x=160, y=70)
 
 button_times = Button(
     body_frame,
     text='*',
-    width=10,
+    width=11,
     height=4,
     bg=color3,
     fg=color4,
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("*")
+    command=lambda: display_values('*'),
 )
 button_times.place(x=240, y=70)
 
@@ -191,7 +195,7 @@ button_4 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("4")
+    command=lambda: display_values('4'),
 )
 button_4.place(x=0, y=140)
 
@@ -203,7 +207,7 @@ button_5 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("5")
+    command=lambda: display_values('5'),
 )
 button_5.place(x=80, y=140)
 
@@ -215,21 +219,21 @@ button_6 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("6")
+    command=lambda: display_values('6'),
 )
 button_6.place(x=160, y=140)
 
 button_minus = Button(
     body_frame,
     text='-',
-    width=10,
+    width=11,
     height=4,
     bg=color3,
     fg=color4,
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("-")
+    command=lambda: display_values('-'),
 )
 button_minus.place(x=240, y=140)
 
@@ -241,7 +245,7 @@ button_1 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("1")
+    command=lambda: display_values('1'),
 )
 button_1.place(x=0, y=210)
 
@@ -253,7 +257,7 @@ button_2 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("2")
+    command=lambda: display_values('2'),
 )
 button_2.place(x=80, y=210)
 
@@ -265,21 +269,21 @@ button_3 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("3")
+    command=lambda: display_values('3'),
 )
 button_3.place(x=160, y=210)
 
 button_plus = Button(
     body_frame,
     text='+',
-    width=10,
+    width=11,
     height=4,
     bg=color3,
     fg=color4,
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("+")
+    command=lambda: display_values('+'),
 )
 button_plus.place(x=240, y=210)
 
@@ -291,7 +295,7 @@ button_negate = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command= negate
+    command=negate,
 )
 button_negate.place(x=0, y=280)
 
@@ -303,7 +307,7 @@ button_0 = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values("0")
+    command=lambda: display_values('0'),
 )
 button_0.place(x=80, y=280)
 
@@ -315,26 +319,22 @@ button_comma = Button(
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=lambda: display_values(".")
+    command=lambda: display_values('.'),
 )
 button_comma.place(x=160, y=280)
 
 button_equals = Button(
     body_frame,
     text='=',
-    width=10,
+    width=11,
     height=4,
     bg=color3,
     fg=color4,
     font=('Arial', 9, 'bold'),
     relief=RAISED,
     overrelief=RIDGE,
-    command=calculate
+    command=calculate,
 )
 button_equals.place(x=240, y=280)
-
-window.bind("<Key-Return>", lambda x: calculate)
-window.bind("<KP_0>", lambda x: display_values('0'))
-window.bind("<KP_1>", lambda x: display_values('1'))
 
 window.mainloop()
